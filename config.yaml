@@ -1,0 +1,58 @@
+data_path: "data"
+
+output_file_path: "output_with_boruta.xlsx"
+
+fillna_column_type1:
+  - "CHN_AG_RECENCY"
+  - "CALLOUT_AG_RECENCY"
+  - "Y_RECENCY_HIS"
+  - "Y1_RECENCY_HIS"
+  - "Y2_RECENCY_HIS"
+  - "Y3_RECENCY_HIS"
+
+fillna_column_type2:
+  - "CLIENT_INCOME"
+
+fillna_value_type1: 600
+
+columns_to_dummies:
+  - "SEX"
+  - "Y_RISK_FLG"
+  - "Y1_RISK_FLG"
+  - "Y2_RISK_FLG"
+  - "Y3_RISK_FLG"
+  - "POL_RATE_JUMP_FLG2"
+  - "area_name"
+  - "office_rk"
+  - "office_CITY"
+  - "CLASS"
+  - "AG_GP"
+
+columns_to_exclude:
+  - "AGENT_RK"
+  - "Y"
+
+standardscaler_path: "src/preprocessing/standardscaler.pkl"
+selected_feature_path: "src/preprocessing/selected_feature.pkl"
+
+# 以下為各模型經超參數調校後，表現最好的參數組合
+model_params: 
+  random_forest:
+    n_estimators: 200
+    max_depth: 3
+    min_samples_split: 10
+    random_state: 42
+    class_weight: "balanced"
+
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.01
+    random_state: 42
+  
+  voting_classifier:
+    voting: "soft"
+    weights: [1,9] #前者為xgboost的權重，後者為random_forest的權重
+
+cost_of_inspection: 1
+cost_of_punishment: 100

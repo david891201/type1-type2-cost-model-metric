@@ -1,0 +1,1 @@
+本資料夾除了 preprocessing.py 以外， 還有放置使用訓練集裡面的數值型特徵擬合(fit)好的 standardscaler 物件和經過 boruta 演算法特徵篩選所得到的特徵清單(list 物件)，以上兩者分別儲存在stardardscaler.pkl 和 selected_feature.pkl ，作為資料前處理使用。因本專案並未公開原始資料集，故以上兩個.pkl需要使用者自行根據所使用的資料集重新生成。若有修改以上兩個檔案放置的路徑，需要到config.yaml同步更新。
