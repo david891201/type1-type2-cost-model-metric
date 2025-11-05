@@ -79,4 +79,7 @@ Python 3.10.5
 
 ## 如何執行
 1. 建立虛擬環境，虛擬環境所需要的套件以及版本皆已寫在requirements.txt
-2. 準備好資料集，以及資料集前處理所需要的.pkl，並根據情境調整config.yaml裡面的參數後，於terminal執行python main.py
+2. 準備好資料集，以及資料集前處理所需要的.pkl，並根據情境調整config.yaml裡面的參數後，於terminal執行
+```text
+python main.py
+```
